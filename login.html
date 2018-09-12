@@ -1,0 +1,140 @@
+<!doctype html>
+<html>
+<head>
+
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="language" content="es" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="" />
+  <meta name="keywords" content="" />
+  <meta name="author" content="OneGorilla" />
+  <!--meta http-equiv="refresh" content="1000; url=http://accstage.herokuapp.com/welcome/places/1/render?filename=index.html&is_initial=true&person=T-$(mac-esc)&burl=$(link-login-only)" /-->
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+<link rel="manifest" href="/assets/favicon/site.webmanifest">
+<link rel="mask-icon" href="/assets/favicon/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="/assets/favicon/favicon.ico">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-config" content="/assets/favicon/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+
+<title>Red WiFi Accionet</title>
+
+<!-- CSS -->
+<link href="css/styles.css" rel="stylesheet" />
+
+</head>
+
+
+<script type="text/javascript" src="js/ua-parser.min.js"></script>
+<script>
+
+	var parser = new UAParser();
+
+    // by default it takes ua string from current browser's window.navigator.userAgent
+
+    // let's test a custom user-agent string as an example
+    var uastring = navigator.userAgent || navigator.vendor || window.opera;
+    parser.setUA(uastring);
+
+    var result = parser.getResult();
+    // this will also produce the same result (without instantiation):
+    // var result = UAParser(uastring);
+    function execute() {
+      console.log(uastring);
+      document.getElementById("userAgent").innerHTML = uastring;
+
+      console.log(result.browser.major, 'browser major');
+      document.getElementById("a1").innerHTML = result.browser.major;     // {name: "Chromium", version: "15.0.874.106"}
+      console.log(result.browser.name, 'browser name');
+      document.getElementById("a2").innerHTML = result.browser.name;
+      console.log(result.browser.version, 'browser version');
+      document.getElementById("a3").innerHTML = result.browser.version;
+      console.log(result.device.model, 'device model');
+      document.getElementById("a4").innerHTML = result.device.model;
+      console.log(result.device.type, 'device type');
+      document.getElementById("a5").innerHTML = result.device.type;
+      console.log(result.device.vendor, 'device vendr');     // {model: undefined, type: undefined, vendor: undefined}
+      document.getElementById("a6").innerHTML = result.device.vendor;
+      console.log(result.os.version, 'Version');     // "11.10"
+      document.getElementById("a7").innerHTML = result.os.version;
+      console.log(result.engine.name, 'engine');    // "WebKit"
+      document.getElementById("a8").innerHTML = result.engine.name;
+      console.log(result.cpu.architecture, 'cpu arqui');   // "amd64"
+      document.getElementById("a9").innerHTML = result.cpu.architecture;
+      getMobileOperatingSystem();
+    }
+
+</script>
+
+
+<script>
+  function redirect() {
+    setTimeout(function () {
+      window.location = 'http://accstage.herokuapp.com/welcome/places/1/render?filename=index.html&is_initial=true&person=T-$(mac-esc)&burl=$(link-login-only)';
+    }, 4000);
+    setTimeout(function () {
+      window.location.replace("http://accstage.herokuapp.com/welcome/places/1/render?filename=index.html&is_initial=true&person=T-$(mac-esc)&burl=$(link-login-only)");
+    }, 7000);
+    setTimeout(function () {
+      window.location.assign("http://accstage.herokuapp.com/welcome/places/1/render?filename=index.html&is_initial=true&person=T-$(mac-esc)&burl=$(link-login-only)");
+    }, 10000);
+    setTimeout(function () {
+      window.location.href = "http://accstage.herokuapp.com/welcome/places/1/render?filename=index.html&is_initial=true&person=T-$(mac-esc)&burl=$(link-login-only)";
+    }, 13000);
+  }
+
+//   function getMobileOperatingSystem() {
+// var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+// document.getElementById("metaData").innerHTML = userAgent;
+// console.log(userAgent);
+// var cellType = 'type';
+//     // Windows Phone must come first because its UA also contains "Android"
+//   if (/windows phone/i.test(userAgent)) {
+//       console.log('Windows');
+//       cellType = 'Windows';
+//       document.getElementById("myText").innerHTML = cellType;
+//       return "Windows Phone";
+//   }
+//
+//   if (/android/i.test(userAgent)) {
+//     console.log("Andorid");s
+//     cellType = 'Andorid';
+//     document.getElementById("myText").innerHTML = cellType;
+//       return "Android";
+//   }
+//
+//   // iOS detection from: http://stackoverflow.com/a/9039885/177710
+//   if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+//     console.log('iOS');
+//     cellType = 'iOS';
+//     document.getElementById("myText").innerHTML = cellType;
+//       return "iOS";
+//   }
+//   console.log('unknown');
+//   cellType = 'unknown';
+//   document.getElementById("myText").innerHTML = cellType;
+//   return "unknown";
+// }
+</script>
+<!--body onload="redirect() "-->
+<body onload="execute();">
+
+  <div class="show_type">
+    <h1>user Agent:<span id="userAgent"></span></h1>
+    <h1>browser major:<span id="a1"></span></h1>
+    <h1>browser name:<span id="a2"></span></h1>
+    <h1>browser Version:<span id="a3"></span></h1>
+    <h1>device model:<span id="a4"></span></h1>
+    <h1>device type:<span id="a5"></span></h1>
+    <h1>device vendor:<span id="a6"></span></h1>
+    <h1>OS Version:<span id="a7"></span></h1>
+    <h1>Engine:<span id="a8"></span></h1>
+    <h1>cpu arqui:<span id="a9"></span></h1>
+
+  </div>
+
+</html>
